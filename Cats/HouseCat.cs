@@ -7,7 +7,15 @@ namespace Cats
         public string Name { get; set; }
         public string Species { get; } = "Felis catus";
 
-
+        public HouseCat(double weight) : base(weight)
+        {
+            //This is all there is to this constructor!
+        }
+        
+        public HouseCat(string name)
+        {
+            Name = name;
+        }
         public HouseCat(string name, double weight) : base(weight)
         {
             Name = name;
@@ -22,7 +30,14 @@ namespace Cats
 
         public override string Noise()
         {
-            return "Hello, my name is " + Name + "!";
+            if (IsSatisfied())
+            {
+                return "Hello, my name is " + Name + "!";
+            }
+            else
+            {
+                return base.Noise();
+            }
         }
 
         public string Purr()
